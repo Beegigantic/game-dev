@@ -1,0 +1,55 @@
+<style>
+    body {
+        display: flex;
+    }
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        padding: 20px;
+    }
+    .tab-content {
+        display: none;
+    }
+    .tab-content.active {
+        display: block;
+    }
+</style>
+
+<h1 align=center>t2a16-multiple-tabs-fred.html</h1>
+<div class="sidebar">
+    <button class="item" onclick="showTab(1)">Welcome Tab</button>
+    <button class="item" onclick="showTab(2)">Goodbye Tab</button>
+</div>
+
+<div class="content">
+    <div id="tab1" class="tab-content active">
+        <h1>Welcome</h1>
+    </div>
+
+    <div id="tab2" class="tab-content">
+        <h1>Goodbye</h1>
+    </div>
+</div>
+
+<script>
+    // Function to show the selected tab
+    function showTab(tabNumber) {
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        document.getElementById(`tab${tabNumber}`).classList.add('active');
+
+        // Also toggle active class on buttons (items)
+        const buttons = document.querySelectorAll('.item');
+        buttons.forEach(button => button.classList.remove('active'));
+        buttons[tabNumber - 1].classList.add('active');
+    }
+</script>
+

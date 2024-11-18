@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Move Image Demo</title>
+    <style>
+        .control-button {
+            background-color: grey;
+            color: white;
+            cursor: not-allowed;
+            margin: 10px;
+        }
+
+        .control-button.active {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #moveLeftButton {
+            background-color: grey;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        #moveLeftButton.active {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+
+        #myImage01.flipped {
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">t1a12-move-rielly.html</h1>
+    <script>
+        let myClock02, myClock03;
+    </script>
+    <div class="button-container">
+        <input type="button" id="autoRightButton" value="Move Right" onclick="startAutoMoveRight()" class="control-button active">
+        <input type="button" id="autoLeftButton" value="Move Left" onclick="startAutoMoveLeft()" class="control-button" disabled>
+       <input type="button" id="autoDownButton" value="Move Down" onclick="startAutoMoveDown()" class="control-button" disabled>
+    </div>
+    <img id="myImage01" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="https://th.bing.com/th?id=OIP.onnPhpb9QFqIildOyPBzNAHaEc&w=322&h=193&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2">
+    <script>
+        function moveRight() {
+            let image = document.getElementById('myImage01');
+            let imageRightEdge = image.offsetLeft + image.offsetWidth;
+            let containerWidth = document.body.clientWidth;
+
+            if (imageRightEdge < containerWidth) {
+                image.style.left = parseInt(image.style.left) + 10 + 'px';
+            } else {
+                clearInterval(myClock02);
+                document.getElementById('moveLeftButton').classList.add('active');
+                document.getElementById('moveLeftButton').disabled = false;
+            }
+        }
+
+        function startAutoMoveRight() {
+            document.getElementById('myImage01').style.left = '0px';
+            clearInterval(myClock02);
+            myClock02 = setInterval(moveRight, 30);
+            document.getElementById('autoMoveRightButton').disabled = false;
+            document.getElementById('autoMoveRightButton').classList.remove('active');
+        }
+
+        function moveLeft() {
+            let image = document.getElementById('myImage01');
+            let imageLeftEdge = image.offsetLeft;
+
+            if (imageLeftEdge > 0) {
+                image.style.left = parseInt(image.style.left) - 10 + 'px';
+            } else {
+                clearInterval(myClock03);
+                document.getElementById('moveLeftButton').classList.remove('active');
+                document.getElementById('moveLeftButton').disabled = true;
+                document.getElementById('autoMoveRightButton').disabled = false;
+                document.getElementById('autoMoveRightButton').classList.add('active');
+                image.classList.remove('flipped');
+            }
+        }
+
+        function startAutoMoveDown() {
+            clearInterval(myClock03);
+            document.getElementById('myImage01');
+            myClock03 = setInterval(moveDown, 30);
+        }
+        function moveDown() {
+            let image = document.getElementById('myImage01');
+            let imageTopEdge = image.offsetTop;
+
+            if (imageTopEdge > 0) {
+                image.style.top = parseInt(image.style.top) + 10 + 'px';
+            } else {
+                clearInterval(myClock03);
+                document.getElementById('moveDownButton').classList.remove('active');
+                document.getElementById('moveDownButton').disabled = true;
+                document.getElementById('autoMoveUpButton').disabled = false;
+                document.getElementById('autoMoveUpButton').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

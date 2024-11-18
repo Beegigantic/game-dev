@@ -1,0 +1,54 @@
+<html>
+
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.3.0"></script> 
+</head>
+<body>
+ <a href="Index.html">Back to Index</a><br>
+
+ 
+<input id="myButton123" type="button" value="xOr using Keras Layers" onclick="{
+                                                                                     
+  (async function myGo() {
+    document.getElementById('myButton123').style.backgroundColor = 'red'  
+    const model = tf.sequential();
+
+    model.add(tf.layers.dense({inputShape: [2],  units: 35000, activation: 'relu',}) );  // 2 inputs to 10 hidden layer nodes
+    model.add(tf.layers.dense({units: 1, activation: 'sigmoid'}));                                                                                  
+    const myOptimizer = tf.train.adam(0.01);
+                                                                                               
+	model.compile({optimizer: myOptimizer, loss: 'binaryCrossentropy'});
+
+    const xTrainingData   = tf.tensor2d([[0,0], [0,1], [1,0], [1,1]]);      // array defines shape  // note should also add , 'int32'
+    const yTrainingTarget = tf.tensor2d([[0], [1], [1], [0]]);
+                                                                                 
+    var myFit = await model.fit(xTrainingData, yTrainingTarget, {
+    batchSize: 5,
+    epochs: 30,
+    callbacks: {
+        onEpochEnd: async (epoch, logs) => {
+            document.getElementById('myDiv123').innerHTML = 'Epoch # ' + (epoch + 1) + '/30, Loss: ' + logs.loss.toFixed(4) + '<br><br>';
+            await tf.nextFrame();
+        }
+    }
+});                                                                               
+                                                                                
+    const myPredictArray = model.predict(xTrainingData).dataSync()   // just throw all the training data back in
+                              
+
+                                                    
+    document.getElementById('myDiv123').innerHTML += '[0,0] = ' + myPredictArray[0].toFixed(5) + '<br>'
+    document.getElementById('myDiv123').innerHTML += '[1,0] = ' + myPredictArray[1].toFixed(5) + '<br>'
+    document.getElementById('myDiv123').innerHTML += '[0,1] = ' + myPredictArray[2].toFixed(5) + '<br>'
+    document.getElementById('myDiv123').innerHTML += '[1,1] = ' + myPredictArray[3].toFixed(5) + '<br>'
+    document.getElementById('myButton123').style.backgroundColor = 'lightgray' 
+                                                                              
+  } )() // end Async function
+                                                                                                                                                                                                                                        
+}" style="background-color: red;"><br><br>
+
+
+
+<div id='myDiv123'>...</div><br>
+</body>
+</html>

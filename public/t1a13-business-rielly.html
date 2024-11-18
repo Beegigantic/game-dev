@@ -1,0 +1,297 @@
+<html>
+<head>
+    <title>Jewelry Store</title>
+    <link rel="stylesheet" href="styles.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    padding: 20px 0;
+}
+
+.product {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.product img {
+    width: 100px;
+    height: 100px;
+}
+
+footer {
+    width: 80%;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input, select, button {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #555;
+}
+header {
+    background-color: #222;
+    color: white;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.product {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.product h2 {
+    color: #222;
+}
+
+.product p {
+    font-size: 20px;
+    color: #555;
+}
+footer {
+    width: 80%;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, select, button {
+    width: 80%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #222;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input, select, button {
+    width: 80%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #222;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Jewelry Store</h1>
+    </header>
+    <main>
+<div class="product">
+    <img src="ring.jfif" alt="Ring">
+    <h2>Elegant Ring</h2>
+    <p id="ring-price">$299</p>
+    <label for="ring-size">Size:</label>
+    <select id="ring-size" onchange="updatePrice('ring', 299)">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+    </select>
+</div>
+<div class="product">
+    <img src="necklace.jfif" alt="Necklace">
+    <h2>Beautiful Necklace</h2>
+    <p id="necklace-price">$499</p>
+    <label for="necklace-size">Size:</label>
+    <select id="necklace-size" onchange="updatePrice('necklace', 499)">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+    </select>
+</div>
+<div class="product">
+    <img src="bracelet.jfif" alt="Bracelet">
+    <h2>Chic Bracelet</h2>
+    <p id="bracelet-price">$199</p>
+    <label for="bracelet-size">Size:</label>
+    <select id="bracelet-size" onchange="updatePrice('bracelet', 199)">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+    </select>
+</div>
+    </main>
+<footer>
+    <h2>Order Form</h2>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <label for="address">Address:</label>
+        <input type="text" id="address" required>
+        <label for="payment-method">Payment Method:</label>
+        <select id="payment-method" required>
+            <option value="credit-card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="apple-pay">Apple Pay</option>
+            <option value="google-pay">Google Pay</option>
+        </select>
+        <button type="submit">Submit Order</button>
+    </form>
+</footer>
+<script>
+function updatePrice(item, basePrice) {
+    const sizeSelect = document.getElementById(`${item}-size`);
+    const selectedSize = sizeSelect.value;
+    let price;
+
+    switch (selectedSize) {
+        case 'small':
+            price = basePrice;
+            break;
+        case 'medium':
+            price = basePrice + 50;
+            break;
+        case 'large':
+            price = basePrice + 100;
+            break;
+    }
+
+    document.getElementById(`${item}-price`).innerText = `$${price}`;
+}
+
+function updatePrice(item, basePrice) {
+    const sizeSelect = document.getElementById(`${item}-size`);
+    const selectedSize = sizeSelect.value;
+    let price;
+
+    switch (selectedSize) {
+        case 'small':
+            price = basePrice;
+            break;
+        case 'medium':
+            price = basePrice + 50;
+            break;
+        case 'large':
+            price = basePrice + 100;
+            break;
+    }
+
+    document.getElementById(`${item}-price`).innerText = `$${price}`;
+}
+</script>
+</body>
+</html>

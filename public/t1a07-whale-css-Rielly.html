@@ -1,0 +1,83 @@
+<html>
+<head>
+    <style>
+        p {
+            border: 2px solid black;
+        }
+        y {
+            color: red;
+        }
+        body {
+            background-color: #12C4CC;
+            position: relative;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(https://th.bing.com/th/id/OIP.kVsSYSbfosx2shcSmZJr4QHaE7?w=276&h=184&c=7&r=0&o=5&pid=1.7);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+        k {
+            font: italic small-caps bold 16px/1.5 "Comic Sans", sans-serif;
+        }
+        .see-through-text {
+            opacity: 0.5;
+        }
+        .button {
+            background-color: #12C4CC;
+            transition: background-color 0.5s ease;
+            border-color: #12C4CC;
+        }
+        .button:hover {
+            background-image: url(https://th.bing.com/th/id/OIP.ex5KYElGdSup7eoO0fMIwQHaEt?w=290&h=184&c=7&r=0&o=5&pid=1.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <a href="Index.html">Back to Index</a><br>
+        <h1>t1a07-whale-css-Rielly.html</h1>
+        <p>Whales are <y>soooooo </y> cool.</p><br><br>
+        <k>Whales is a cool word to write in Comic Sans</k>
+        <div class="see-through-text">This text is semi-transparent.</div><br><br><br>
+        <table border=.5>
+            <tr>
+                <th>Beluga Whale</th>
+                <th>Sperm Whale</th>
+                <th>Humpback Whale</th>
+            </tr>
+            <tr>
+                <td><a href="https://en.wikipedia.org/wiki/Beluga_whale#:~:text=The%20beluga%20whale%20(/%20b%20%C9%AA%20%CB%88%20l%20u%CB%90%20%C9%A1">Beluga Wiki</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Sperm_whale#:~:text=The%20sperm%20whale%20or%20cachalot%20[a]#:~:text=The%20sperm%20whale%20or%20cachalot%20[a]">Sperm Whale Wiki</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Humpback_whale">Humpback Wiki</a></td>
+            </tr>
+            <tr>
+                <td><img src="https://th.bing.com/th/id/OIP.r_tQRIzdSfDS7gHaR4cjPAHaEz?w=305&h=198&c=7&r=0&o=5&pid=1.7"></td>
+                <td><img src="https://th.bing.com/th/id/OIP.P4x8ZYCHjmlZvv7aaqo7zgHaE8?w=254&h=180&c=7&r=0&o=5&pid=1.7"></td>
+                <td><img src="https://th.bing.com/th/id/OIP.uMPW19lylwPs1Zpvzmb4DgHaE8?w=262&h=180&c=7&r=0&o=5&pid=1.7"></td>
+            </tr>
+        </table><br><br>
+        <button class="button"><img width=270 height=150 src="transparent-textures-static-8 (1).png"></button>
+        <h1>Hover on the cyan above me!</h1><br><br>
+    </div>
+</body>
+</html>

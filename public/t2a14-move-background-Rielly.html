@@ -1,0 +1,55 @@
+<html>
+<head>
+</head>
+<body id="myBody" style="background-repeat: repeat; background-size: 100%" background="background.jfif">
+<script>
+	let myGlobalX = 0;
+	let myImageLeft = 0;
+	let isAutoMoving = false;
+	let moveAmount = 10; // Increase the pixel change per movement
+
+	function moveBackground(direction) {
+		myGlobalX += direction === 'left' ? -moveAmount : moveAmount;
+		myImageLeft += direction === 'left' ? -moveAmount : moveAmount;
+
+		// Check bounds
+		if (Math.abs(myGlobalX) >= 1000) {
+			myGlobalX = (direction === 'left') ? 1000 : -1000; // Stop at the limits
+		}
+
+		document.getElementById('myBody').style.backgroundPosition = myGlobalX + 'px 0px';
+		document.getElementById('myImage01').style.left = myImageLeft + 'px';
+	}
+
+	function moveLeft() {
+		moveBackground('left');
+	}
+
+	function moveRight() {
+		moveBackground('right');
+	}
+
+	function autoMove(direction) {
+		if (isAutoMoving) return;
+		isAutoMoving = true;
+
+		function step() {
+			moveBackground(direction);
+			if (Math.abs(myGlobalX) < 1000) {
+				requestAnimationFrame(step);
+			} else {
+				isAutoMoving = false; // Allow for more movement
+			}
+		}
+		step();
+	}
+</script>
+
+<h1 align="center">t2a14-move-background-Rielly.html</h1>
+
+<input align=center type="button" value="Look Right" onclick="autoMove('left')">
+<input align=center type="button" value="Look Left" onclick="autoMove('right')"><br>
+
+<img id="myImage01" style="position: relative; width: 100px; height: 80px; top: 0px; left: 0px;" src="Minecraft.jfif">
+</body>
+</html>

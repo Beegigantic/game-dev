@@ -1,0 +1,49 @@
+<html>
+<head>
+  <style>
+    /* Add any necessary styles here */
+  </style>
+</head>
+<body>
+        <a href="Index.html">Back to Index</a><br>
+  <!-- Button and audio for the "Bonk" sound -->
+  <audio id="bonkSound" loop>
+    <source src="Bonk_-_Sound_Effect_HD_[_YouConvert.net_].mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="bonkButton" onclick="playSound('bonk')">Play Bonk</button>
+
+  <!-- Button and audio for the "Bruh" sound -->
+  <audio id="bruhSound" loop>
+    <source src="Bruh_sound_effect_[_YouConvert.net_].mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="bruhButton" onclick="playSound('bruh')">Play Bruh</button>
+
+  <!-- Button and audio for the "Another Sound" -->
+  <audio id="getoutSound" loop>
+    <source src="Get_out_sound_effect_[_YouConvert.net_].mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="getoutButton" onclick="playSound('getout')">Play Get Out</button>
+
+  <script>
+    // Function to handle sound play/pause for each button
+    function playSound(soundType) {
+      // Get the corresponding audio element and button
+      const sound = document.getElementById(soundType + 'Sound');
+      const button = document.getElementById(soundType + 'Button');
+
+      // Toggle play/pause behavior
+      if (sound.paused) {
+        sound.play();
+        button.innerText = 'Pause ' + soundType.charAt(0).toUpperCase() + soundType.slice(1);
+      } else {
+        sound.pause();
+        button.innerText = 'Play ' + soundType.charAt(0).toUpperCase() + soundType.slice(1);
+      }
+    }
+  </script>
+</body>
+</html>
+
